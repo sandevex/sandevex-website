@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #fbfbfd; /* Apple premium off-white */
+  --foreground: #1d1d1f; /* Apple rich deep charcoal text */
+  
+  --brand-primary: #18cb96; /* Sandevex signature mint green */
+  --brand-secondary: #059669;
+  --brand-accent: #1d1d1f; /* Matching deep text foreground */
+  
+  --glass-bg: rgba(255, 255, 255, 0.85); /* Premium dense frosted glass */
+  --glass-border: rgba(0, 0, 0, 0.06); /* High-contrast clean border */
+  --card-bg: #ffffff; /* Pure white content blocks */
+  --card-border: rgba(0, 0, 0, 0.04); /* Sleek micro-borders */
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-secondary: var(--brand-secondary);
+  --color-brand-accent: var(--brand-accent);
+  
+  --font-sans: var(--font-geist-sans), Inter, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+  
+  --animate-fade-in-up: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-scale-in: scale-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+html,
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid var(--glass-border);
+}
+
+.card-premium {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-premium:hover {
+  border-color: rgba(24, 203, 150, 0.25);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.06), 0 0 1px 0 rgba(24, 203, 150, 0.15);
+  transform: translateY(-5px);
+}
+
+/* Apple Alt Background Helper */
+.bg-section-alt {
+  background-color: #f5f5f7;
+}
+
+/* Accent Gradients */
+.text-gradient-brand {
+  background: linear-gradient(135deg, #18cb96 0%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gradient-brand {
+  background: linear-gradient(135deg, #18cb96 0%, #059669 100%);
+}
+
+/* Custom glow utility */
+.glow-accent {
+  box-shadow: 0 0 25px -5px rgba(24, 203, 150, 0.3);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(24, 203, 150, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(24, 203, 150, 0.4);
+}
